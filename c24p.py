@@ -1,6 +1,4 @@
 s_input = input("请输入4个数字(1~10)，并用英文逗号分隔 :")
-print(s_input)
-
 
 arr_input = s_input.split(",")
 print(arr_input)
@@ -12,7 +10,6 @@ if len(arr_input) != 4:
 bInputError = False
 s_error = ""
 for sin in arr_input:
-    print(sin)
     if not (str(sin).strip()).isdigit():
         bInputError = True
         s_error = sin
@@ -33,7 +30,7 @@ b=4
 c=6
 d=7
 '''
-
+TARGET_NUM = 24
 nums = [a,b,c,d]
 print(nums)
 
@@ -115,7 +112,7 @@ for i,a in enumerate(listNums):
 
                 s = s3 + "=" +str(x3)
 
-                if x3 == 24:
+                if x3 == TARGET_NUM:
                     print(s)
                 
  
