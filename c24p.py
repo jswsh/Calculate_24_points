@@ -1,7 +1,38 @@
+s_input = input("请输入4个数字(1~10)，并用英文逗号分隔 :")
+print(s_input)
+
+
+arr_input = s_input.split(",")
+print(arr_input)
+
+if len(arr_input) != 4:
+    print("输入值错误：必须是4个数字")
+    exit()
+
+bInputError = False
+s_error = ""
+for sin in arr_input:
+    print(sin)
+    if not (str(sin).strip()).isdigit():
+        bInputError = True
+        s_error = sin
+        break
+
+if bInputError:
+    print("输入类型错误：存在非整数:"+s_error)
+    exit()
+
+a=int(arr_input[0].strip())
+b=int(arr_input[1].strip())
+c=int(arr_input[2].strip())
+d=int(arr_input[3].strip())
+
+'''
 a=8
 b=4
 c=6
 d=7
+'''
 
 nums = [a,b,c,d]
 print(nums)
@@ -95,3 +126,6 @@ for i,a in enumerate(listNums):
 #listNums.append(nums)
 
 #print(listNums)
+
+s_exit = input("完成，按任意键推出...")
+print(s_exit)
