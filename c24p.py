@@ -183,5 +183,5 @@ if __name__=="__main__":
     #print(listNums)
 
     s_exit = ""
-    # s_exit = input("完成，按任意键推出...")
+    s_exit = input("完成，按任意键推出...")
     print(s_exit)
