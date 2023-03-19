@@ -3,14 +3,19 @@ if __name__=="__main__":
     #设置计算目标：24
     TARGET_NUM = 24
 
-    ''''''
+    ''' 默认的abcd4个数字，在debug模式下，可以用于测试计算 '''
     a=1
     b=4
     c=6
     d=2
     
+    a=1
+    b=4
+    c=4
+    d=2
+    
     DEBUG_MODE = True
-    if not DEBUG_MODE:
+    if not DEBUG_MODE: #在非调试，即正常运行模式下时，需要用户输入4个整数
         #要求输入
         s_input = input("请输入4个数字(1~10)，并用英文逗号分隔 :")
         #转换为[]
@@ -38,9 +43,7 @@ if __name__=="__main__":
         b=int(arr_input[1].strip())
         c=int(arr_input[2].strip())
         d=int(arr_input[3].strip())
-
-    
-    
+ 
 
     #参与计算数字赋值[]，并打印出来
     nums = [a,b,c,d]
@@ -91,7 +94,7 @@ if __name__=="__main__":
                 x1 = a[0]-a[1]
             elif c1 == "+": 
                 x1 = a[0]+a[1]
-            elif c1 == "/":
+            elif c1 == "/" and a[1] != 0:
                 x1 = a[0]/a[1]
             elif c1 == "*":
                 x1 = a[0]*a[1]
@@ -100,6 +103,7 @@ if __name__=="__main__":
             if c1 == "-" or c1 == "+": #加上括号
                 s1 = "(" + s1 + ")"
 
+            #直接 1->2->3->4顺序计算
             for c2 in ["-","+","/","*"]:
                 #print(c2)
                 #if c==0 :
@@ -109,7 +113,7 @@ if __name__=="__main__":
                     x2 = x1-a[2]
                 elif c2 == "+":
                     x2 = x1+a[2]
-                elif c2 == "/":
+                elif c2 == "/" and a[2] != 0:
                     x2 = x1/a[2]
                 elif c2 == "*":
                     x2 = x1*a[2]
@@ -123,7 +127,7 @@ if __name__=="__main__":
                         x = x2-a[3]
                     elif c3 == "+":
                         x = x2+a[3]
-                    elif c3 == "/":
+                    elif c3 == "/" and a[3] != 0:
                         x = x2/a[3]
                     elif c3 == "*":
                         x = x2*a[3]
@@ -133,14 +137,14 @@ if __name__=="__main__":
                     if x3 == TARGET_NUM:
                         print(s)
 
-            #计算后两位先运算的情况
+            #计算后两位先运算的情况 1->2->(3->4)
             for c2 in ["-","+","/","*"]:
                 for c3 in ["-","+","/","*"]:
                     if c3 == "-":
                         x4 = a[2]-a[3]
                     elif c3 == "+":
                         x4 = a[2]+a[3]
-                    elif c3 == "/":
+                    elif c3 == "/" and a[3] != 0:
                         x4 = a[2]/a[3]
                     elif c3 == "*":
                         x4 = a[2]*a[3]
@@ -152,7 +156,7 @@ if __name__=="__main__":
                         x = x1-x4
                     elif c2 == "+":
                         x = x1+x4
-                    elif c2 == "/":
+                    elif c2 == "/"  and x4 != 0:
                         x = x1/x4
                     elif c2 == "*":
                         x = x1*x4
@@ -163,14 +167,7 @@ if __name__=="__main__":
                             print(s)
 
 
-                    
-    
-            
-                    
-        #print(s)
-
     #listNums.append(nums)
-
     #print(listNums)
 
     s_exit = input("完成，按任意键推出...")
