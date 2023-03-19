@@ -9,10 +9,10 @@ if __name__=="__main__":
     c=6
     d=2
     
-    a=1
-    b=4
-    c=4
-    d=2
+    # a=1
+    # b=4
+    # c=4
+    # d=2
     
     DEBUG_MODE = True
     if not DEBUG_MODE: #在非调试，即正常运行模式下时，需要用户输入4个整数
@@ -49,6 +49,7 @@ if __name__=="__main__":
     nums = [a,b,c,d]
     print(nums)
 
+    listNumsTemp = []
     listNums = []
 
     nums_arr=[]
@@ -72,9 +73,20 @@ if __name__=="__main__":
                     idx_arr=[i,j,k,l]
                     nums_arr=[nums[i],nums[j],nums[k],nums[l]]
                     i_count += 1
-                    listNums.append(nums_arr)
+                    listNumsTemp.append(nums_arr)
+                    # listNums.append(nums_arr)
                     #打印出组合出来的数字计算顺序
-                    print(str(i_count) + " -- " + str(idx_arr) + ":"+str(nums_arr))
+                    # if DEBUG_MODE:
+                    #     print(str(i_count) + " -- " + str(idx_arr) + ":"+str(nums_arr))
+    
+    print("--------------------------------")
+    
+    for arr_n in (listNumsTemp):
+        if arr_n not in listNums:
+            listNums.append(arr_n)
+            print(arr_n)
+            
+    print("--------------------------------")
                     
     #print(listNums)  #print(len(listNums)) 
     # 指定特殊数字，调试用
@@ -170,5 +182,6 @@ if __name__=="__main__":
     #listNums.append(nums)
     #print(listNums)
 
-    s_exit = input("完成，按任意键推出...")
+    s_exit = ""
+    # s_exit = input("完成，按任意键推出...")
     print(s_exit)
